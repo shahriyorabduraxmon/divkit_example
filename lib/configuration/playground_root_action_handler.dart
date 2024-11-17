@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:divkit/divkit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,11 +25,8 @@ class PlaygroundAppRootActionHandler implements DivActionHandler {
     if (_typedHandler.canHandle(context, action)) {
       return true;
     }
-    print("nima gap");
     final uri = action.url;
     if (uri != null) {
-      print(uri.scheme);
-      print(uri.host);
       if (uri.scheme == _schemeDivAction &&
           uri.host == _openScreen &&
           [
@@ -60,11 +58,11 @@ class PlaygroundAppRootActionHandler implements DivActionHandler {
       return false;
     }
 
+    return false;
     return handleUrlAction(context, uri);
   }
 
   bool handleUrlAction(DivContext context, Uri uri) {
-    print("salomat");
     if (uri.queryParameters[_paramActivity] == "visit") {
       _launchURL("https://t.me/shahriyor_abduraxmon_projects"); // Telegram URL
       return true;
@@ -73,10 +71,12 @@ class PlaygroundAppRootActionHandler implements DivActionHandler {
   }
 
   void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+    try {
+      await launchUrl(Uri.parse(url));
+    } catch (error){
+      if (kDebugMode) {
+        print(error);
+      }
+      }
   }
 }

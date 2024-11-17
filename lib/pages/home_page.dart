@@ -36,7 +36,6 @@ class HomePage extends StatelessWidget {
           return FutureBuilder<DivKitData>(
             future: load(),
             builder: (_, snapshot) {
-              print(snapshot.data);
               if (snapshot.hasData) {
                 return DivKitView(
                   data: snapshot.requireData,
