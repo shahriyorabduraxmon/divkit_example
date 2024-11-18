@@ -1,0 +1,210 @@
+{
+  "templates": {
+    "title": {
+      "type": "text",
+      "font_size": 20,
+      "line_height": 24,
+      "font_weight": "bold",
+      "paddings": {
+        "left": 24,
+        "right": 24,
+        "bottom": 16
+      }
+    },
+    "subtitle": {
+      "font_size": 15,
+      "line_height": 20,
+      "type": "text",
+      "paddings": {
+        "left": 24,
+        "right": 24
+      }
+    },
+    "input_text_borderless": {
+      "type": "input",
+      "width": {
+        "type": "match_parent"
+      },
+      "height": {
+        "type": "wrap_content"
+      },
+      "margins": {
+        "left": 16,
+        "top": 20,
+        "right": 16,
+        "bottom": 16
+      },
+      "paddings": {
+        "left": 16,
+        "top": 10,
+        "right": 16,
+        "bottom": 10
+      },
+      "alignment_horizontal": "center",
+      "alignment_vertical": "center",
+      "font_size": 16,
+      "font_weight": "medium",
+      "text_color": "#000000",
+      "hint_color": "#888888",
+      "highlight_color": "#e0bae3",
+      "line_height": 22
+    },
+    "input_text": {
+      "type": "input_text_borderless",
+      "background": [
+        {
+          "type": "solid",
+          "color": "#0e000000"
+        }
+      ],
+      "border": {
+        "corner_radius": 8
+      }
+    },
+    "output_text": {
+      "type": "text",
+      "width": {
+        "type": "match_parent"
+      },
+      "height": {
+        "type": "wrap_content"
+      },
+      "paddings": {
+        "left": 24,
+        "right": 24,
+        "bottom": 16
+      },
+      "alpha": 1,
+      "alignment_horizontal": "center",
+      "alignment_vertical": "center",
+      "font_size": 16,
+      "font_weight": "medium",
+      "text_alignment_horizontal": "left",
+      "text_alignment_vertical": "center",
+      "text_color": "#000000"
+    },
+    "bubble_text": {
+      "type": "text",
+      "text_color": "#FFFFFF",
+      "text_alignment_horizontal": "center",
+      "text_alignment_vertical": "center",
+      "font_size": 24,
+      "line_height": 28,
+      "border": {
+        "corner_radius": 36
+      },
+      "action_animation": {
+        "name": "scale",
+        "start_value": 1.0,
+        "end_value": 0.95,
+        "duration": 300,
+        "interpolator": "ease_in_out"
+      }
+    }
+  },
+  "card": {
+    "log_id": "sample_card",
+    "variables": [
+      {
+        "name": "my_single_text",
+        "type": "string",
+        "value": "+9989"
+      },
+      {
+        "name": "my_number_text",
+        "type": "string",
+        "value": ""
+      }
+    ],
+    "states": [
+      {
+        "state_id": 0,
+        "div": {
+          "type": "container",
+          "orientation": "vertical",
+          "margins": {
+            "top": 24,
+            "bottom": 24
+          },
+          "items": [
+            {
+              "type": "title",
+              "text": "Telefon raqamingizni kiriting"
+            },
+            {
+              "type": "input_text",
+              "text_variable": "my_single_text",
+              "keyboard_type": "number",
+              "enter_key_type": "done",
+              "enter_key_actions": [
+                {
+                  "log_id": "clear focus",
+                  "typed": {
+                    "type": "clear_focus"
+                  }
+                },
+                {
+                  "log_id": "change_button_1_state",
+                  "url": "div-action://set_variable?name=my_single_text&value=Enter key tapped!"
+                }
+              ]
+            },
+            {
+              "type": "title",
+              "text": "To'lov summasini kiriting"
+            },
+            {
+              "type": "input_text",
+              "keyboard_type": "number",
+              "text_variable": "my_number_text",
+              "hint_text": "To'lov summasini kiriting"
+            },
+            {
+              "type": "output_text",
+              "text": "Siz @{my_single_text} raqamiga @{my_number_text} so'm to'lov qilmoqchisiz.",
+              "ranges": [
+                {
+                  "start": 0,
+                  "end": 5,
+                  "text_color": "#777777"
+                }
+              ]
+            },
+            {
+              "type": "bubble_text",
+              "text": "Tasdiqlash",
+              "background": [
+                {
+                  "color": "#000000",
+                  "type": "solid"
+                }
+              ],
+              "height": {
+                "type": "fixed",
+                "value": 80
+              },
+              "width": {
+                "type": "match_parent"
+              },
+              "margins": {
+                "left": 16,
+                "right": 16,
+                "top": 10
+              },
+              "border": {
+                "corner_radius": 85
+              },
+              "actions": [
+                {
+                  "type": "url",
+                  "log_id": "Payment confirmation",
+                  "url": "div-action://open_screen?activity=dialog"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

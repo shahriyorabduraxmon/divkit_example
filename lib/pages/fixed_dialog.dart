@@ -7,13 +7,13 @@ import 'package:divkit/divkit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class FixedDialog extends StatelessWidget {
+  const FixedDialog({super.key});
 
   Future<DivKitData> load() async {
     try {
       final String str = await rootBundle.loadString(
-        AppDivkit.visit,
+        AppDivkit.fixed,
       );
       final Map<String, dynamic> jsonData = jsonDecode(str);
       final DivKitData? divKitData = await DefaultDivKitData.fromJson(jsonData).build();

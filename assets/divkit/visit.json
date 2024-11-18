@@ -59,7 +59,7 @@
             },
             {
               "type": "container",
-              "orientation": "horizontal",
+              "orientation": "vertical",
               "height": {
                 "type": "match_parent"
               },
@@ -69,7 +69,26 @@
               "items": [
                 {
                   "type": "text",
-                  "text": "You can view Shahriyor's portfolio by clicking the button below.",
+                  "text": "Payment program.",
+                  "alignment_horizontal": "center",
+                  "text_alignment_vertical": "center",
+                  "text_alignment_horizontal": "center",
+                  "font_size": 24,
+                  "line_height": 24,
+                  "font_weight": "regular",
+                  "height": {
+                    "type": "match_parent"
+                  },
+                  "background": [
+                    {
+                      "color": "#5A43E3",
+                      "type": "solid"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": "Click the Payment button to make the payment.",
                   "alignment_horizontal": "center",
                   "text_alignment_vertical": "center",
                   "text_alignment_horizontal": "center",
@@ -90,7 +109,7 @@
             },
             {
               "type": "bubble_text",
-              "text": "Visit",
+              "text": "Payment",
               "background": [
                 {
                   "color": "#000000",
@@ -113,8 +132,8 @@
               "actions": [
                 {
                   "type": "url",
-                  "log_id": "visit_to_shahriyor's_portfolio",
-                  "url": "http://telegram?activity=visit"
+                  "log_id": "payment page",
+                  "url": "div-action://open_screen?activity=payment_types"
                 }
               ]
             }

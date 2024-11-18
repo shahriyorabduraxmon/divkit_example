@@ -1,0 +1,120 @@
+{
+  "templates": {
+    "bubble_text": {
+      "type": "text",
+      "text_color": "#FFFFFF",
+      "text_alignment_horizontal": "center",
+      "text_alignment_vertical": "center",
+      "font_size": 24,
+      "line_height": 28,
+      "border": {
+        "corner_radius": 36
+      },
+      "action_animation": {
+        "name": "scale",
+        "start_value": 1.0,
+        "end_value": 0.95,
+        "duration": 300,
+        "interpolator": "ease_in_out"
+      }
+    }
+  },
+  "card": {
+    "log_id": "main_screen",
+    "states": [
+      {
+        "state_id": 0,
+        "div": {
+          "type": "container",
+          "orientation": "vertical",
+          "width": {
+            "type": "match_parent"
+          },
+          "height": {
+            "type": "match_parent"
+          },
+          "margins": {
+            "top": 40,
+            "bottom": 10,
+            "left": 20,
+            "right": 20,
+            "start": 20,
+            "end": 20
+          },
+          "items": [
+            {
+              "type": "text",
+              "text": "Tabriklaymiz!",
+              "alignment_horizontal": "center",
+              "font_size": 24,
+              "line_height": 24,
+              "font_weight": "regular",
+              "text_alignment_vertical": "center",
+              "text_alignment_horizontal": "center",
+              "text_color": "#000000",
+              "margins": {
+                "top": 24,
+                "bottom": 40
+              }
+            },
+            {
+              "type": "container",
+              "orientation": "horizontal",
+              "height": {
+                "type": "match_parent"
+              },
+              "width": {
+                "type": "match_parent"
+              },
+              "items": [
+                {
+                  "type": "text",
+                  "text": "To'lovungiz muvaffaqiyatli amalga oshirildi.",
+                  "alignment_horizontal": "center",
+                  "text_alignment_vertical": "center",
+                  "text_alignment_horizontal": "center",
+                  "font_size": 24,
+                  "line_height": 24,
+                  "font_weight": "regular",
+                  "height": {
+                    "type": "match_parent"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "bubble_text",
+              "text": "Yopish",
+              "background": [
+                {
+                  "color": "#000000",
+                  "type": "solid"
+                }
+              ],
+              "height": {
+                "type": "fixed",
+                "value": 80
+              },
+              "width": {
+                "type": "match_parent"
+              },
+              "margins": {
+                "top": 10
+              },
+              "border": {
+                "corner_radius": 85
+              },
+              "actions": [
+                {
+                  "type": "url",
+                  "log_id": "payment page",
+                  "url": "div-action://open_screen?activity=payment_types"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
