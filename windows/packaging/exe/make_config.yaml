@@ -1,0 +1,14 @@
+# The value of AppId uniquely identifies this application.
+# Do not use the same AppId value in installers for other applications.
+app_id: fdf9a7b3-9c61-4ba9-ba5e-ff94aa65b08b
+publisher: DivKit
+publisher_url: https://github.com/leanflutter/flutter_distributor
+display_name: DivKit
+create_desktop_icon: true
+# See: https://jrsoftware.org/ishelp/index.php?topic=setup_defaultdirname
+# install_dir_name: "D:\\HELLO-WORLD"
+privileges_required: lowest
+publisher_name: DivKit
+script_template: inno_setup.iss
+locales:
+  - ru
